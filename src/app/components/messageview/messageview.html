@@ -1,0 +1,16 @@
+<div class="message-view">
+  <h2>Messages</h2>
+  <div class="messages">
+    <p class="no-messages" ng-if="$ctrl.messages.length == 0">No messages</p>
+    <ul ng-if="$ctrl.messages.length > 0">
+      <li ng-repeat="message in $ctrl.messages track by $index">
+        <strong>{{$ctrl.isMe(message.username)? 'me' : message.username}}</strong> {{message.sendTime}}<br>
+        {{message.content}}
+      </li>
+    </ul>
+  </div>
+  <form name="messageBoxForm" class="message-box">
+    <input type="text" name="message" placeholder="Type message here..." ng-model="$ctrl.messageInfo.content" ng-required="true"/>
+    <button type="button" ng-disabled="messageBoxForm.$invalid" ng-click="$ctrl.sendMessage()">Send</button>
+  </form>
+</div>
