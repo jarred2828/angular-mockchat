@@ -16,12 +16,19 @@ export class ChatController {
     this.messages.push(randomItem);
   }
 
+  playSound() {
+    const audio = new Audio('assets/beep.mp3');
+    audio.play();
+  }
+
   sendMessage(messageInfo) {
     this.messages.push({
       username: this.userService.getUser(),
       content: messageInfo.content,
       sendTime: moment().format('YYYY-MM-DD HH:mm')
     });
+
+    this.playSound();
 
     this.$timeout(() => {
       this.randomPostMessage();
