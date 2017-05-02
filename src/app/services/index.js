@@ -7,5 +7,5 @@ export const serviceModule = 'app.services';
 
 angular
   .module(serviceModule, [])
-  .service('userService', UserService.getInstance)
-  .service('mockReplyService', MockReplyService.getInstance);
+  .factory('userService', ['$window', '$state', '$log', UserService.getInstance])
+  .factory('mockReplyService', MockReplyService.getInstance);

@@ -16,5 +16,3 @@ export class MockReplyService {
     return new MockReplyService();
   }
 }
-
-MockReplyService.$inject = [];

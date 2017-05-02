@@ -30,5 +30,3 @@ export class UserService {
     return new UserService($window, $state, $log);
   }
 }
-
-UserService.$inject = ['$window', '$state', '$log'];
